@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bronze-50: #fdf6e9;
+  --color-bronze-100: #f8e8c8;
+  --color-bronze-200: #e6c99a;
+  --color-bronze-300: #d4a76a;
+  --color-bronze-400: #c9a05f;
+  --color-bronze-500: #b87333;
+  --color-bronze-600: #a56628;
+  --color-bronze-700: #8b5221;
+  --color-bronze-800: #6b3d1a;
+  --color-bronze-900: #1a1512;
+  --color-bronze-950: #0d0a08;
+
+  --color-omnis-cherry: #a54b2e;
+  --color-omnis-lavender: #8b6b9c;
+  --color-omnis-lemon: #d4a76a;
+  --color-omnis-bronze: #cd7f32;
+  --color-omnis-glow: #e6a04c;
+  --color-omnis-amber: #c9872a;
+
+  --color-rust: #8b4513;
+
+  --font-family-display: 'Cinzel', serif;
+  --font-family-serif: 'Georgia', 'Cambria', serif;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s ease-in-out infinite;
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 20px rgba(230, 160, 76, 0.3);
+    }
+
+    100% {
+      box-shadow: 0 0 40px rgba(230, 160, 76, 0.6);
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes shimmer {
+
+    0%,
+    100% {
+      opacity: 0.6;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  background-color: var(--color-bronze-950);
+  color: var(--color-bronze-100);
+  font-family: var(--font-family-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-display);
+}
+
+.nav-link {
+  color: var(--color-bronze-300);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-omnis-glow);
+}
+
+.nav-link-active {
+  color: var(--color-omnis-glow);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-omnis-bronze), var(--color-omnis-glow));
+  color: var(--color-bronze-950);
+  padding: 0.75rem 2rem;
+  border-radius: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(230, 160, 76, 0.3);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--color-omnis-glow), var(--color-omnis-bronze));
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(230, 160, 76, 0.5);
+}
+
+.btn-secondary {
+  border: 1px solid var(--color-bronze-500);
+  color: var(--color-bronze-200);
+  padding: 0.75rem 2rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-omnis-glow);
+  color: var(--color-omnis-glow);
+  box-shadow: 0 0 15px rgba(230, 160, 76, 0.2);
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-bronze-100);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-bronze-400);
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  background-color: rgba(26, 21, 18, 0.7);
+  border: 1px solid rgba(184, 115, 51, 0.2);
+  border-radius: 2px;
+  padding: 2rem;
+  backdrop-filter: blur(4px);
+}
+
+.glow-text {
+  color: var(--color-omnis-glow);
+  text-shadow: 0 0 20px rgba(230, 160, 76, 0.4), 0 0 40px rgba(205, 127, 50, 0.2);
+}
+
+/* Custom scrollbar - Bronze theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0a08;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6b3d1a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b5221;
+}
+
+/* Book cover shadow effect */
+.book-cover-shadow {
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 60px rgba(230, 160, 76, 0.15);
+}
+
+/* Antique border effect */
+.antique-border {
+  border: 2px solid transparent;
+  background: linear-gradient(var(--color-bronze-950), var(--color-bronze-950)) padding-box,
+    linear-gradient(135deg, var(--color-bronze-600), var(--color-bronze-400), var(--color-bronze-600)) border-box;
+}
