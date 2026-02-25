@@ -34,8 +34,11 @@ export default function Header() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`nav-link ${pathname === link.href ? "nav-link-active" : ""
-                                    }`}
+                                className={
+                                    link.href === "/acquista"
+                                        ? "btn-primary py-2 px-6"
+                                        : `nav-link ${pathname === link.href ? "nav-link-active" : ""}`
+                                }
                             >
                                 {link.label}
                             </Link>
@@ -74,23 +77,30 @@ export default function Header() {
                 </div>
 
                 {/* Mobile Navigation */}
-                {mobileOpen && (
-                    <div className="md:hidden mt-4 pb-4 border-t border-bronze-800/50 pt-4">
-                        <div className="flex flex-col gap-4">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className={`nav-link ${pathname === link.href ? "nav-link-active" : ""
-                                        }`}
-                                    onClick={() => setMobileOpen(false)}
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </div>
+                <div
+                    className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+                        mobileOpen
+                            ? "max-h-[400px] opacity-100 mt-4 pb-4 border-t border-bronze-800/50 pt-4"
+                            : "max-h-0 opacity-0"
+                    }`}
+                >
+                    <div className="flex flex-col gap-4">
+                        {navLinks.map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={
+                                    link.href === "/acquista"
+                                        ? "btn-primary w-full text-center py-3 mt-2"
+                                        : `nav-link ${pathname === link.href ? "nav-link-active" : ""}`
+                                }
+                                onClick={() => setMobileOpen(false)}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
                     </div>
-                )}
+                </div>
             </nav>
         </header>
     );
